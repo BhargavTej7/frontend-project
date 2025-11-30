@@ -47,10 +47,10 @@ const Navbar = () => {
     <header className="navigation">
       <div className="nav-container">
         <Link to="/" className="brand">
-          <span className="brand-icon">🌱</span>
+          <span className="brand-icon">🌾</span>
           <div>
-            <span className="brand-name">AgriValue Exchange</span>
-            <span className="brand-tagline">Grow. Transform. Export.</span>
+            <span className="brand-name">FarmConnect</span>
+            <span className="brand-tagline">Connecting Farms to Markets</span>
           </div>
         </Link>
 

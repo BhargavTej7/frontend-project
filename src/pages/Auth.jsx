@@ -7,6 +7,7 @@ const Auth = () => {
   const navigate = useNavigate()
 
   const [mode, setMode] = useState('signin')
+  const [selectedRole, setSelectedRole] = useState('farmer')
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -27,7 +28,7 @@ const Auth = () => {
       name: '',
       email: '',
       password: '',
-      role: 'farmer',
+      role: selectedRole,
       location: '',
       expertise: '',
     })
@@ -69,6 +70,12 @@ const Auth = () => {
     }
   }
 
+  const handleRoleSelect = (role) => {
+    setSelectedRole(role)
+    setFormState((prev) => ({ ...prev, role }))
+    setError('')
+  }
+
   return (
     <div className="page auth">
       <section className="auth-panel">
@@ -93,6 +100,38 @@ const Auth = () => {
           </button>
         </div>
 
+        {mode === 'signin' && (
+          <div className="role-selector">
+            <h3>Select your role to login</h3>
+            <div className="role-buttons">
+              <button
+                type="button"
+                className={`role-btn ${selectedRole === 'admin' ? 'active' : ''}`}
+                onClick={() => handleRoleSelect('admin')}
+              >
+                <span className="role-icon">👨‍💼</span>
+                <span className="role-label">Admin</span>
+              </button>
+              <button
+                type="button"
+                className={`role-btn ${selectedRole === 'farmer' ? 'active' : ''}`}
+                onClick={() => handleRoleSelect('farmer')}
+              >
+                <span className="role-icon">👨‍🌾</span>
+                <span className="role-label">Farmer</span>
+              </button>
+              <button
+                type="button"
+                className={`role-btn ${selectedRole === 'buyer' ? 'active' : ''}`}
+                onClick={() => handleRoleSelect('buyer')}
+              >
+                <span className="role-icon">🛒</span>
+                <span className="role-label">Buyer</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         <form className="auth-form" onSubmit={handleSubmit}>
           {mode === 'register' ? (
             <>
@@ -102,7 +141,10 @@ const Auth = () => {
                   id="role"
                   name="role"
                   value={formState.role}
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    handleChange(e)
+                    setSelectedRole(e.target.value)
+                  }}
                   required
                 >
                   <option value="farmer">Farmer entrepreneur</option>
@@ -145,7 +187,11 @@ const Auth = () => {
                 </div>
               ) : null}
             </>
-          ) : null}
+          ) : (
+            <div className="form-field">
+              <label>Login as: <strong>{selectedRole.charAt(0).toUpperCase() + selectedRole.slice(1)}</strong></label>
+            </div>
+          )}
 
           <div className="form-field">
             <label htmlFor="email">Email</label>
@@ -175,14 +221,28 @@ const Auth = () => {
           {error ? <p className="form-error">{error}</p> : null}
 
           <button type="submit" className="cta primary wide">
-            {mode === 'signin' ? 'Access dashboard' : 'Create account'}
+            {mode === 'signin' ? `Login as ${selectedRole}` : 'Create account'}
           </button>
         </form>
 
-        <p className="auth-note">
-          Need admin access? Use the seeded credentials{' '}
-          <code>admin@farmlink.io / admin123</code>
-        </p>
+        {mode === 'signin' && (
+          <div className="auth-credentials">
+            <p className="auth-note">
+              <strong>Demo Credentials:</strong>
+            </p>
+            <div className="credentials-list">
+              <div className="credential-item">
+                <strong>Admin:</strong> 2400030791@kluniversity.in / bhargav
+              </div>
+              <div className="credential-item">
+                <strong>Farmer:</strong> 2400080026@kluniversity.in / farmer123
+              </div>
+              <div className="credential-item">
+                <strong>Buyer:</strong> 2300031957@kluniversity.in / buyer123
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="auth-aside">

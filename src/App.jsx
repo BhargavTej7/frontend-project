@@ -86,10 +86,10 @@ const App = () => {
       </main>
       <footer className="app-footer">
         <p>
-          Built for FEDF-PS01 &mdash; Empowering rural entrepreneurship with value-added agriculture.
+          Empowering farmers and connecting them with buyers worldwide.
         </p>
         <p>
-          © {new Date().getFullYear()} AgriValue Exchange. Connecting farmers and global buyers.
+          © {new Date().getFullYear()} FarmConnect. All rights reserved.
         </p>
       </footer>
     </div>

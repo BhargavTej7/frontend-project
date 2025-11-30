@@ -60,44 +60,124 @@ const defaultState = {
       createdAt: Date.now() - 1000 * 60 * 60 * 24 * 18,
     },
   ],
+
+  // -----------------------------------------------------------
+  // PRODUCTS (Vegetables)
+  // -----------------------------------------------------------
   products: [
     {
       id: 'product-1',
       farmerId: 'farmer-1',
-      name: 'Spiced Pearl Millet Snack Mix',
+      name: 'Fresh Organic Tomato',
       description:
-        'Hand-roasted pearl millet clusters infused with regional spices, ready for international shipping.',
-      category: 'Processed Foods',
-      price: 14.5,
-      stock: 220,
-      unit: 'packs',
+        'Fresh, naturally ripened, hand-picked tomatoes perfect for daily cooking, retail sale, and bulk distribution.',
+      category: 'Fresh Produce',
+      price: 2.5,
+      stock: 180,
+      unit: 'kg',
       lastUpdated: Date.now() - 1000 * 60 * 60 * 5,
-      certifications: ['Organic Certified', 'Fair Trade Compliant'],
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
       images: [
-        'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1592841200221-a6898a07e8c1?auto=format&fit=crop&w=800&q=80',
       ],
       status: 'approved',
-      valueAdd: ['Cold-pressed oil coating', 'Dehydrated herbs infusion'],
+      valueAdd: ['Hand-sorted for quality', 'Naturally ripened with no chemicals'],
     },
     {
       id: 'product-2',
       farmerId: 'farmer-2',
-      name: 'Single-Origin Cocoa Nibs',
+      name: 'Premium Carrots',
       description:
-        'Stone-ground cocoa nibs with traceable origin, ideal for bean-to-bar chocolate makers.',
-      category: 'Artisan Ingredients',
-      price: 19.75,
-      stock: 120,
+        'Sweet, crunchy organic carrots grown in nutrient-rich soil. Perfect for fresh consumption, juicing, and culinary use.',
+      category: 'Fresh Produce',
+      price: 1.8,
+      stock: 250,
       unit: 'kg',
       lastUpdated: Date.now() - 1000 * 60 * 60 * 24 * 2,
-      certifications: ['Rainforest Alliance', 'HACCP'],
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
       images: [
-        'https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80',
       ],
       status: 'approved',
-      valueAdd: ['Solar fermentation', 'Hand-sorted beans'],
+      valueAdd: ['Hand-washed and sorted', 'Freshly harvested'],
+    },
+    {
+      id: 'product-3',
+      farmerId: 'farmer-1',
+      name: 'Fresh Bell Peppers',
+      description:
+        'Colorful bell peppers in red, yellow, and green varieties. Crisp, sweet, and perfect for salads, stir-fries, and roasting.',
+      category: 'Fresh Produce',
+      price: 3.2,
+      stock: 150,
+      unit: 'kg',
+      lastUpdated: Date.now() - 1000 * 60 * 60 * 24 * 1,
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
+      images: [
+        'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=800&q=80',
+      ],
+      status: 'approved',
+      valueAdd: ['Color-sorted varieties', 'Premium quality selection'],
+    },
+    {
+      id: 'product-4',
+      farmerId: 'farmer-2',
+      name: 'Fresh Broccoli',
+      description:
+        'Nutrient-dense organic broccoli with firm florets and fresh green color. Rich in vitamins and perfect for healthy meals.',
+      category: 'Fresh Produce',
+      price: 2.8,
+      stock: 120,
+      unit: 'kg',
+      lastUpdated: Date.now() - 1000 * 60 * 60 * 18,
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
+      images: [
+        'https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?auto=format&fit=crop&w=800&q=80',
+      ],
+      status: 'approved',
+      valueAdd: ['Freshly cut', 'Cold chain maintained'],
+    },
+    {
+      id: 'product-5',
+      farmerId: 'farmer-1',
+      name: 'Fresh Potatoes',
+      description:
+        'Premium quality organic potatoes, perfect for cooking, baking, and frying. Freshly harvested with excellent texture and flavor.',
+      category: 'Fresh Produce',
+      price: 1.5,
+      stock: 300,
+      unit: 'kg',
+      lastUpdated: Date.now() - 1000 * 60 * 60 * 10,
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
+      images: [
+        'https://images.unsplash.com/photo-1592841200221-a6898a07e8c1?auto=format&fit=crop&w=800&q=80',
+      ],
+      status: 'approved',
+      valueAdd: ['Hand-sorted', 'Freshly dug'],
+    },
+    {
+      id: 'product-6',
+      farmerId: 'farmer-2',
+      name: 'Fresh Onions',
+      description:
+        'Crisp, flavorful organic onions with strong aroma. Perfect for cooking, salads, and culinary preparations. Long shelf life.',
+      category: 'Fresh Produce',
+      price: 1.2,
+      stock: 280,
+      unit: 'kg',
+      lastUpdated: Date.now() - 1000 * 60 * 60 * 8,
+      certifications: ['Organic Certified', 'Farm Fresh Verified'],
+      images: [
+        'https://images.unsplash.com/photo-1592841200221-a6898a07e8c1?auto=format&fit=crop&w=800&q=80',
+      ],
+      status: 'approved',
+      valueAdd: ['Sun-dried', 'Properly cured'],
     },
   ],
+
+  // -----------------------------------------------------------
+  // ORDERS
+  // -----------------------------------------------------------
   orders: [
     {
       id: 'order-1',
@@ -105,11 +185,11 @@ const defaultState = {
       productId: 'product-2',
       farmerId: 'farmer-2',
       quantity: 45,
-      totalPrice: 45 * 19.75,
+      totalPrice: 45 * 1.8,
       status: 'in_transit',
       createdAt: Date.now() - 1000 * 60 * 60 * 24 * 4,
       updatedAt: Date.now() - 1000 * 60 * 60 * 12,
-      notes: 'Require moisture-proof packaging',
+      notes: 'Fresh carrots needed for juicing business',
     },
     {
       id: 'order-2',
@@ -117,13 +197,17 @@ const defaultState = {
       productId: 'product-1',
       farmerId: 'farmer-1',
       quantity: 150,
-      totalPrice: 150 * 14.5,
+      totalPrice: 150 * 2.5,
       status: 'delivered',
       createdAt: Date.now() - 1000 * 60 * 60 * 24 * 20,
       updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 10,
-      notes: 'Interested in exclusive flavor collaboration',
+      notes: 'Interested in exclusive packaging partnership',
     },
   ],
+
+  // -----------------------------------------------------------
+  // FEEDBACK
+  // -----------------------------------------------------------
   feedback: [
     {
       id: 'feedback-1',
@@ -132,7 +216,7 @@ const defaultState = {
       farmerId: 'farmer-1',
       rating: 5,
       comment:
-        'Exceptional flavor and packaging. Our customers love the story behind this product.',
+        'Tomatoes were extremely fresh and well-packed. Excellent sourcing quality!',
       createdAt: Date.now() - 1000 * 60 * 60 * 24 * 8,
     },
   ],
@@ -237,9 +321,7 @@ const initializer = () => {
     if (stored) {
       return JSON.parse(stored)
     }
-  } catch (_error) {
-    // ignore JSON errors and fallback to defaults
-  }
+  } catch (_error) {}
   return defaultState
 }
 
@@ -252,9 +334,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-    } catch (_error) {
-      // Ignore storage quota issues
-    }
+    } catch (_error) {}
   }, [state])
 
   const currentUser = state.currentUserId
@@ -268,13 +348,9 @@ export const AppProvider = ({ children }) => {
         candidate.password === password,
     )
 
-    if (!user) {
-      throw new Error('Invalid credentials')
-    }
-
-    if (user.status !== 'active') {
+    if (!user) throw new Error('Invalid credentials')
+    if (user.status !== 'active')
       throw new Error('Account is not active. Contact the admin team.')
-    }
 
     dispatch({ type: ACTIONS.LOGIN, payload: { userId: user.id } })
     return user
@@ -289,9 +365,7 @@ export const AppProvider = ({ children }) => {
         userInput.email.trim().toLowerCase(),
     )
 
-    if (alreadyExists) {
-      throw new Error('Email already registered')
-    }
+    if (alreadyExists) throw new Error('Email already registered')
 
     const user = {
       id: randomId(userInput.role),
@@ -340,13 +414,10 @@ export const AppProvider = ({ children }) => {
     const product = state.products.find(
       (item) => item.id === orderInput.productId,
     )
-    if (!product) {
-      throw new Error('Product not found')
-    }
+    if (!product) throw new Error('Product not found')
 
-    if (orderInput.quantity > product.stock) {
+    if (orderInput.quantity > product.stock)
       throw new Error('Requested quantity exceeds available stock')
-    }
 
     const order = {
       id: randomId('order'),
@@ -362,13 +433,18 @@ export const AppProvider = ({ children }) => {
     }
 
     dispatch({ type: ACTIONS.PLACE_ORDER, payload: { order } })
+
     dispatch({
       type: ACTIONS.UPDATE_PRODUCT,
       payload: {
         productId: product.id,
-        updates: { stock: product.stock - order.quantity, lastUpdated: Date.now() },
+        updates: {
+          stock: product.stock - order.quantity,
+          lastUpdated: Date.now(),
+        },
       },
     })
+
     return order
   }
 
@@ -414,5 +490,3 @@ export const useAppContext = () => {
   }
   return ctx
 }
-
-
