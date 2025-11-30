@@ -1,4 +1,4 @@
-# AgriValue Exchange
+# Farm connect 
 
 Web application built with React + Vite for FEDF-PS01: “Support the farmers to produce value-added agricultural products for promoting rural entrepreneurship.”
 
